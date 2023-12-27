@@ -11,6 +11,7 @@ db_connection()
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-app.use('/', RouterPage);
+app.use('/', async (req, res) => res.status(200).json({ message: "working" }));
+// app.use('/', RouterPage);
 
 app.listen(process.env.PORT, () => console.log("server listen at port", process.env.PORT));
