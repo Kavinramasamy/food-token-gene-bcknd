@@ -1,6 +1,6 @@
 import { db_connection } from "./dataBase/db.js";
 import express from 'express';
-import { } from 'dotenv/config.js';
+import 'dotenv/config.js';
 import cors from 'cors';
 import { RouterPage } from "./Routers/RouterPage.js"
 
