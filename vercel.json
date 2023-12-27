@@ -1,6 +1,6 @@
 {
     "version": 2,
-    "name": "food-token-generator-application",
+    "name": "food-token-generator-app",
     "builds": [
         {
             "src": "./index.js",
