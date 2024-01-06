@@ -3,6 +3,7 @@ import cors from "cors";
 import "dotenv/config.js";
 import { db_connection } from "./database/db_connection.js";
 import router from "./router/routers.js";
+import WelcomeComp from "./component/welcome/welcome.js";
 
 const app = express();
 
@@ -12,7 +13,8 @@ app.use(express.json());
 db_connection();
 
 //Router
-app.use("/", router);
+app.get("/", WelcomeComp);
+// app.use("/", router);
 
 //Server
 const PORT = process.env.PORT;
