@@ -1,17 +1,19 @@
-import { db_connection } from "./dataBase/db.js";
-import express from 'express';
-import 'dotenv/config.js';
-import cors from 'cors';
-import { RouterPage } from "./Routers/RouterPage.js"
+import express from "express";
+import cors from "cors";
+import "dotenv/config.js";
+import { db_connection } from "./database/db_connection.js";
+import router from "./router/routers.js";
 
 const app = express();
 
-db_connection()
-
+//Middleware
 app.use(cors({ origin: "*" }));
 app.use(express.json());
+db_connection();
 
-app.use('/', async (req, res) => res.status(200).json({ message: "working" }));
-// app.use('/', RouterPage);
+//Router
+app.use("/", router);
 
-app.listen(process.env.PORT, () => console.log("server listen at port", process.env.PORT));
+//Server
+const PORT = process.env.PORT;
+app.listen(PORT, () => console.log("Listening ", PORT));
