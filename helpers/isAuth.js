@@ -10,6 +10,7 @@ const isAuth = async (req, res, next) => {
             token = await req.headers['x-auth-token']
             const decode = jwt.verify(token, process.env.SECRET_KEY);
             if (decode) {
+
                 next();
             }
         }
