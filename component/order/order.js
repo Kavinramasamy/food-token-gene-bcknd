@@ -7,7 +7,8 @@ const OrderList = async (req, res) => {
       return res.status(401).json({ message: "No order found" });
     }
     res.status(201).json({ message: "Order list", order_list });
-  } catch (error) {
+  }
+  catch (error) {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
