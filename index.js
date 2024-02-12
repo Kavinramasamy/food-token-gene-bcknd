@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config.js";
-// import router from "./router/routers.js";
+import router from "./router/routers.js";
 import WelcomeComp from "./component/welcome/welcome.js";
 import { db_connection } from "./dataBase/db_connection.js";
 
@@ -14,7 +14,7 @@ db_connection();
 
 //Router
 app.get("/", WelcomeComp);
-// app.use("/", router);
+app.use("/", router);
 
 //Server
 const PORT = process.env.PORT;
