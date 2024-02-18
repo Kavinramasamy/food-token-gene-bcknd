@@ -28,11 +28,7 @@ const FoodSchema = await mongoose.Schema({
     preparation_time: {
         type: Number,
         required: true
-    },
-    avaliablity: {
-        type: Boolean,
-        required: true
-    },
+    }
 
 })
 export const foodModel = mongoose.model("foods", FoodSchema);
