@@ -25,11 +25,7 @@ const food_schema = mongoose.Schema({
   image_url: {
     type: String,
     required: true,
-  },
-  order_now: {
-    type: String,
-    required: true,
-  },
+  }
 });
 
 export const FoodModel = mongoose.model("foods", food_schema);
