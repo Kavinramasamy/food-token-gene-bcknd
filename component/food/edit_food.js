@@ -21,7 +21,7 @@ const EditNewFood = async (req, res) => {
     );
     res.status(200).json({ message: "Updated Successfully", new_food });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error", error });
   }
 };
 export default EditNewFood;
