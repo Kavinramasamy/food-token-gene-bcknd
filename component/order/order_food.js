@@ -3,7 +3,7 @@ import { OrderModel } from "../../models/order_model.js";
 
 const AddNewFoodOrder = async (req, res) => {
   try {
-    const { order_id, table_number, phone_number, email, user_name } = req.body;
+    const { order_id, table_number, phone_number, email, user_name, price } = req.body;
     let token_number;
 
     while (true) {
@@ -23,7 +23,8 @@ const AddNewFoodOrder = async (req, res) => {
         table_number,
         phone_number,
         email,
-        user_name
+        user_name,
+        price
       }
     ).save();
     res
