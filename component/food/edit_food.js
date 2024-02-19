@@ -9,8 +9,8 @@ const EditNewFood = async (req, res) => {
       return res.status(401).json({ message: "No dish present" });
     }
     await FoodModelupdateOne(
-
-      { _id, food_name, veg, price, cooking_time, cuisine, image_url }
+      { _id },
+      { food_name, veg, price, cooking_time, cuisine, image_url }
 
 
     ).then(res => { res.status(200).json({ mressage: "Updated Successfully" }); })
