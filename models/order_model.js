@@ -11,7 +11,7 @@ const order_schema = mongoose.Schema({
     required: true,
   },
   table_number: {
-    type: Number,
+    type: String,
     required: true,
   },
   price: {
