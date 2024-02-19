@@ -12,9 +12,13 @@ const EditNewFood = async (req, res) => {
       { _id },
       { food_name, veg, price, cooking_time, cuisine, image_url }
 
+    )
+      .then(resp => { res.status(200).json({ message: "Updated Successfully", resp }); })
 
-    ).then(res => { res.status(200).json({ mressage: "Updated Successfully" }); })
-      .catch(error => { res.status(400).json({ mressage: "Updated Failed", error }); })
+      .catch(error => {
+        console.log("myerror", error);
+        return res.status(400).json({ message: "Updated Failed", error });
+      })
 
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error", error });
