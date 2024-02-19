@@ -24,7 +24,7 @@ router.post("/food", AddNewFood);
 router.put("/food", EditNewFood);
 
 // ORDER
-router.post("/order", OrderList);
+router.get("/order", OrderList);
 router.post("/order", AddNewFoodOrder);
 router.put("/order", EditFoodOrder);
 

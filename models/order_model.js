@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const order_schema = mongoose.Schema({
-  token_number: {
+  phone_number: {
     type: String,
     required: true,
-    unique: true,
+
   },
   order_id: {
     type: String,
@@ -14,10 +14,20 @@ const order_schema = mongoose.Schema({
     type: Number,
     required: true,
   },
-  status: {
+  price: {
     type: String,
     required: true,
   },
+  email: {
+    type: String,
+    required: true,
+  },
+  token_number: {
+    type: String,
+    required: true,
+    unique: true,
+  }
+
 });
 
 export const OrderModel = mongoose.model("orders", order_schema);
