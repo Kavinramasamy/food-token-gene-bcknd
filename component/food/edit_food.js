@@ -17,6 +17,7 @@ const EditNewFood = async (req, res) => {
       .catch(error => { res.status(400).json({ mressage: "Updated Failed", error }); })
 
   } catch (error) {
+    console.log("my error", error)
     res.status(500).json({ message: "Internal Server Error", error });
   }
 };
