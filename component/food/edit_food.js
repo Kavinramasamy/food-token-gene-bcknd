@@ -10,16 +10,12 @@ const EditNewFood = async (req, res) => {
     }
     await FoodModelupdateOne(
       { _id },
-      { _id, food_name, veg, price, cooking_time, cuisine, image_url },
-      (err, data) => {
-        if (err) {
-          return res.status(401).json({ message: "Update Failed" });
-        } else {
-          return res.status(201).json({ message: "Update success", data });
-        }
-      }
-    );
-    res.status(200).json({ message: "Updated Successfully", new_food });
+      { _id, food_name, veg, price, cooking_time, cuisine, image_url }
+
+
+    ).then(res => { res.status(200).json({ mressage: "Updated Successfully" }); })
+      .catch(error => { res.status(400).json({ mressage: "Updated Failed", error }); })
+
   } catch (error) {
     res.status(500).json({ message: "Internal Server Error", error });
   }
