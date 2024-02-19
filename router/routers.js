@@ -7,6 +7,7 @@ import FoodList from "../component/food/food_list.js";
 import AddNewFoodOrder from "../component/order/order_food.js";
 import OrderList from "../component/order/order.js";
 import EditFoodOrder from "../component/order/edit_order.js";
+import EditNewFood from "../component/food/edit_food.js";
 
 const router = express.Router();
 
@@ -20,6 +21,7 @@ router.post("/signup", AdminSignUp);
 // FOOD
 router.get("/food", FoodList);
 router.post("/food", AddNewFood);
+router.put("/food", EditNewFood);
 
 // ORDER
 router.get("/order", OrderList);
