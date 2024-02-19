@@ -15,20 +15,22 @@ const AddNewFoodOrder = async (req, res) => {
         break;
       }
     }
-
+    //new order
     const new_order = await OrderModel(
-      token_number,
-      order_id,
-      table_number,
-      phone_number,
-      email,
-      user_name
+      {
+        token_number,
+        order_id,
+        table_number,
+        phone_number,
+        email,
+        user_name
+      }
     ).save();
     res
       .status(200)
       .json({ message: "New Food Order Added Successfully", new_order });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error", error });
   }
 };
 export default AddNewFoodOrder;

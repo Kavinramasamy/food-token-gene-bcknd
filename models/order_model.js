@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const order_schema = mongoose.Schema({
   phone_number: {
-    type: String,
+    type: Number,
     required: true,
 
   },
@@ -15,7 +15,7 @@ const order_schema = mongoose.Schema({
     required: true,
   },
   price: {
-    type: String,
+    type: Number,
     required: true,
   },
   email: {
