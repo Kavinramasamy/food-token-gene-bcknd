@@ -41,7 +41,7 @@ const AddNewFoodOrder = async (req, res) => {
     //Message for mail
     let message = {
       from: process.env.USER,
-      to: 'kavinramasamymech@gmail.com',
+      to: req.body.email,
       subject: "Food token generator ",
       html: `<h1>Food Order Token</h1>
       <h3>${token_number}</h2>
