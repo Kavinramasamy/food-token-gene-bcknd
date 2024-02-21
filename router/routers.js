@@ -9,6 +9,7 @@ import OrderList from "../component/order/order.js";
 import EditFoodOrder from "../component/order/edit_order.js";
 import EditNewFood from "../component/food/edit_food.js";
 import DeleteFood from "../component/food/delete_food.js";
+import isAuth from "../helper/authentication.js";
 
 const router = express.Router();
 
@@ -21,9 +22,9 @@ router.post("/signup", AdminSignUp);
 
 // FOOD
 router.get("/food", FoodList);
-router.post("/food", AddNewFood);
-router.put("/food", EditNewFood);
-router.delete("/food:id", DeleteFood);
+router.post("/food", isAuth, AddNewFood);
+router.put("/food", isAuth, EditNewFood);
+router.delete("/food:id", isAuth, DeleteFood);
 
 // ORDER
 router.get("/order", OrderList);

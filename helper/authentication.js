@@ -1,10 +1,9 @@
 import jwt from "jsonwebtoken";
 import "dotenv/config.js";
 
-const Auth = async (req, res, next) => {
+const isAuth = async (req, res, next) => {
   try {
-    // Getting Token from the headers
-    const token = req.headers["x-auth-token"];
+    const { token } = req.body;
     // Check - Token present or not
     if (!token) {
       return res
@@ -25,4 +24,4 @@ const Auth = async (req, res, next) => {
   }
 };
 
-export default Auth;
+export default isAuth;
