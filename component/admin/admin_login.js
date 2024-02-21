@@ -1,7 +1,7 @@
 import express from "express";
-import { AdminModel } from "../../models/admin_model.js";
 import decrypt from "../../helper/decryption.js";
 import generate_token from "../../helper/generate_token.js";
+import { AdminModel } from "../../models/admin_model.js";
 
 const AdminLogin = async (req, res) => {
   try {
