@@ -6,18 +6,28 @@ import generate_token from "../../helper/generate_token.js";
 const AdminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
+
+    // Check Admin is present or not
     const admin = await AdminModel.findOne({ email });
+
+    // Admin already exists
     if (!admin) {
-      return res.status(401).json({ message: "Invalid Credentials" });
+      return res.status(401).json({ message: "Unauthorized" });
     }
-    const check_password = await decrypt(password);
-    if (!check_password) {
-      return res.status(401).json({ message: "Invalid Credentials" });
+
+    // Password Decryption
+    const pass = await decrypt(password, admin.password);
+
+    // Password Validation
+    if (!pass) {
+      return res.status(401).json({ message: "Unauthorized" });
     }
     const token = await generate_token(email);
-    res.status(200).json({ message: "Login Success!", token });
+    return res.status(201).json({ message: "Login Success", token });
   } catch (error) {
-    res.status(500).json({ message: "Internal Server Error" });
+    console.log(error);
+    return res.status(500).json({ message: "Internal Server Error", error });
   }
+
 };
 export default AdminLogin;

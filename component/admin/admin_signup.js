@@ -4,20 +4,30 @@ import encrypt from "../../helper/encryption.js";
 
 const AdminSignUp = async (req, res) => {
   try {
-    const { admin_name, email, password } = req.body;
+    const { email, password } = req.body;
+
+    // Check Admin is present or not
     const admin = await AdminModel.findOne({ email });
+
+    // Admin already exists
     if (admin) {
-      return res.status(401).json({ message: "User already exist" });
+      return res.status(409).json({ message: "Admin Already Exists" });
     }
-    const encrypted_password = await encrypt(password);
+
+    // Password Encryption
+    const hashedPassword = await encrypt(password);
+
+    // Adding new Admin
     const new_admin = await AdminModel({
       email,
-      admin_name,
-      password: encrypted_password,
-    });
-    res.status(200).json({ message: "SignUp Success!", new_admin });
-  } catch (error) {
-    res.status(500).json({ message: "Internal Server Error" });
+      password: hashedPassword,
+    }).save();
+
+    return res.status(201).json({ message: "SignUp Success", new_admin });
   }
+  catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+
 };
 export default AdminSignUp;
