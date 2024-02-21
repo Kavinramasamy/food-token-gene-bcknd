@@ -22,7 +22,7 @@ const AdminLogin = async (req, res) => {
     if (!pass) {
       return res.status(401).json({ message: "Unauthorized" });
     }
-    const token = await generate_token(email);
+    const token = await generate_token();
     return res.status(201).json({ message: "Login Success", token });
   } catch (error) {
     console.log(error);
