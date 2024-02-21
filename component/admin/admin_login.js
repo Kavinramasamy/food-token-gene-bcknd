@@ -2,6 +2,7 @@ import express from "express";
 import decrypt from "../../helper/decryption.js";
 import { AdminModel } from "../../models/admin_model.js";
 import jwt from "jsonwebtoken";
+import "dotenv/config.js";
 
 
 const AdminLogin = async (req, res) => {
