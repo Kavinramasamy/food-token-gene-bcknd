@@ -7,6 +7,6 @@ const generate_food_token = async () => {
   for (var i = 0; i < length; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
-  return "FT-" + result;
+  return "Token : FT-" + result;
 };
 export default generate_food_token;
