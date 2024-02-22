@@ -22,8 +22,8 @@ router.post("/signup", AdminSignUp);
 
 // FOOD
 router.get("/food", FoodList);
-router.post("/food", isAuth, AddNewFood);
-router.put("/food", isAuth, EditNewFood);
+router.post("/food", AddNewFood);
+router.put("/food",  EditNewFood);
 router.delete("/food:id", DeleteFood);
 
 // ORDER
