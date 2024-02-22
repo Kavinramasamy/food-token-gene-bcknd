@@ -11,7 +11,7 @@ const isAuth = async (req, res, next) => {
         .json({ message: "Unauthorized: No token provided" });
     }
     // Token verification
-    const key = process.env.KEY;
+    const key = process.env.SECRET_KEY;
 
     const decode = jwt.verify(token, key);
     console.log(decode);
