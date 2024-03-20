@@ -10,6 +10,7 @@ import EditFoodOrder from "../component/order/edit_order.js";
 import EditNewFood from "../component/food/edit_food.js";
 import DeleteFood from "../component/food/delete_food.js";
 import isAuth from "../helper/authentication.js";
+import OrderCount from "../component/order/order_count.js";
 
 const router = express.Router();
 
@@ -28,6 +29,7 @@ router.delete("/food:id", DeleteFood);
 
 // ORDER
 router.get("/order", OrderList);
+router.get("/count", OrderCount);
 router.post("/order", AddNewFoodOrder);
 router.put("/order", EditFoodOrder);
 
